@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction Result - Medical Insurance Cost Predictor{% endblock %}
+
+{% block content %}
+<div class="header">
+    <h1>Your Insurance Cost Prediction</h1>
+    <p>Based on the information you provided</p>
+</div>
+
+<div class="content">
+    <div class="result-card">
+        <h2>Estimated Annual Cost</h2>
+        <div class="amount">${{ prediction }}</div>
+        <p>This is your predicted annual medical insurance cost</p>
+    </div>
+    
+    <div class="details">
+        <h3>Your Information</h3>
+        <div class="details-grid">
+            <div class="detail-item">
+                <strong>Age:</strong> {{ age }} years
+            </div>
+            <div class="detail-item">
+                <strong>Gender:</strong> {{ sex|title }}
+            </div>
+            <div class="detail-item">
+                <strong>BMI:</strong> {{ bmi }}
+            </div>
+            <div class="detail-item">
+                <strong>Children:</strong> {{ children }}
+            </div>
+            <div class="detail-item">
+                <strong>Smoker:</strong> {{ smoker|title }}
+            </div>
+            <div class="detail-item">
+                <strong>Region:</strong> {{ region|title }}
+            </div>
+        </div>
+    </div>
+    
+    <button onclick="window.location.href='/'" class="btn back-btn">Make Another Prediction</button>
+</div>
+{% endblock %}

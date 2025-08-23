@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="header">
+    <h1>Medical Insurance Cost Predictor</h1>
+    <p>Get an instant estimate of your medical insurance costs based on your personal details</p>
+</div>
+
+<div class="content">
+    <form action="/predict" method="post">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="18" max="100" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="sex">Sex</label>
+                <select id="sex" name="sex" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="bmi">BMI (Body Mass Index)</label>
+                <input type="number" id="bmi" name="bmi" step="0.1" min="10" max="50" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="children">Number of Children</label>
+                <input type="number" id="children" name="children" min="0" max="10" required>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="smoker">Smoker</label>
+                <select id="smoker" name="smoker" required>
+                    <option value="">Select Status</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="region">Region</label>
+                <select id="region" name="region" required>
+                    <option value="">Select Region</option>
+                    <option value="northeast">Northeast</option>
+                    <option value="northwest">Northwest</option>
+                    <option value="southeast">Southeast</option>
+                    <option value="southwest">Southwest</option>
+                </select>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn">Predict Insurance Cost</button>
+    </form>
+</div>
+{% endblock %}
