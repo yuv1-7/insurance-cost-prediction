@@ -1,5 +1,3 @@
-# app.py - Flask Web Application for Insurance Cost Predictor
-
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
 import joblib
@@ -102,5 +100,13 @@ def api_predict():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+# Health check endpoint
+@app.route('/health')
+def health():
+    """Health check endpoint"""
+    return jsonify({'status': 'healthy', 'model_loaded': model is not None})
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    # Use Railway's PORT environment variable or default to 5000
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
