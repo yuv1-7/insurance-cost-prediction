@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Error - Medical Insurance Cost Predictor{% endblock %}
+
+{% block content %}
+<div class="header">
+    <h1>Service Unavailable</h1>
+    <p>We're experiencing technical difficulties</p>
+</div>
+
+<div class="content">
+    <div style="background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="margin-bottom: 10px;">Error</h3>
+        <p>{{ error }}</p>
+    </div>
+    
+    <div style="text-align: center;">
+        <p>Please try again later or contact support if the problem persists.</p>
+        <button onclick="window.location.href='/'" class="btn" style="margin-top: 20px; max-width: 300px;">
+            Back to Home
+        </button>
+    </div>
+</div>
+{% endblock %}
